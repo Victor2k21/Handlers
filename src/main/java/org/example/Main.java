@@ -1,6 +1,6 @@
 package org.example;
 
-import java.util.List;
+import static org.example.Server.threadPool;
 
 public class Main {
     
@@ -8,5 +8,8 @@ public class Main {
         Server.initPoolThreads();
         new Handle().initHandler();
         Server.startServer();
+        
+        threadPool.shutdown();
+        System.out.println("Сервер остановлен");
     }
 }
